@@ -80,7 +80,7 @@ MarkdownPage.fromFile = (filename, base, callback) ->
     (callback) ->
       fs.readFile path.join(base, filename), callback
     (buffer, callback) ->
-      extractMetadata buffer.toString(), callback
+      extractMetadata buffer.toString().replace(/\r\n/g, '\n'), callback
     (result, callback) =>
       {markdown, metadata} = result
       page = new this filename, markdown, metadata

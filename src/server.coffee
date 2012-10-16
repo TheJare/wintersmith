@@ -30,7 +30,7 @@ setup = (options, callback) ->
     ignore: options.ignore
 
   contentHandler = (request, response, callback) ->
-    uri = url.parse(request.url).pathname
+    uri = url.parse(request.url).pathname.replace(/\/$/, "/index.html").replace(/^\//, "")
     logger.verbose "contentHandler: #{ uri }"
     async.waterfall [
       (callback) ->
