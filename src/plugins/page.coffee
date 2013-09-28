@@ -104,7 +104,7 @@ module.exports = (env, callback) ->
 
     getUrl: (base) ->
       # remove index.html for prettier links
-      super(base).replace /index\.html$/, ''
+      super(base).replace /([\/^])index\.html$/, '$1'
       
     makeRelative: (path) ->
       return path unless path.indexOf("/") == 0
