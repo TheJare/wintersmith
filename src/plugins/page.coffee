@@ -16,11 +16,11 @@ class Page extends ContentPlugin
   getFilename: ->
     @_metadata.filename or stripExtension(@_filename) + '.html'
 
-  getHtml: (base='') ->
+  getHtml: (base='/') ->
     @_content
 
   getUrl: (base) ->
-    super(base)
+    super(base).replace /index\.html$/, ''
     
   getIntro: (base) ->
     @_html ?= @getHtml(base)

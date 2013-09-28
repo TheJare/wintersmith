@@ -40,10 +40,10 @@ class ContentPlugin extends Model
     ### return filename for this content ###
     throw new Error 'not implemented'
 
-  getUrl: (base='') ->
+  getUrl: (base='/') ->
     ### return url for this content relative to *base* ###
     filename = @getFilename()
-    if base != "" and not base.match /\/$/
+    if not base.match /\/$/
       base += '/'
     if process.platform is 'win32'
       filename = filename.replace /\\/g, '/' #'
