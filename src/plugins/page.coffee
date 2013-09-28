@@ -108,7 +108,7 @@ module.exports = (env, callback) ->
       
     makeRelative: (path) ->
       return path unless path.indexOf("/") == 0
-      console.log @getUrl()
+      # console.log @getUrl()
       depth = count(@getUrl(), '/') # 1 being /
       ret = ""
       ret += "../" while depth = depth - 1
